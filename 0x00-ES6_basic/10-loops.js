@@ -1,4 +1,5 @@
-/* disable-eslint*/
+/* eslint-disable */
+
 export default function appendToEachArrayValue(array, appendString) {
   let res = [];
   for (const value of array) {
