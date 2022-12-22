@@ -1,4 +1,4 @@
-# 0x01. ES6 Promises
+# 0x01. ES6 Promises Web-back-end specializations
 This is alx  tutuor project to understand the ES6 Promise objects.
 ##  Learning Objectives
 
