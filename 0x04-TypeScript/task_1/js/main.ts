@@ -6,3 +6,10 @@ interface Teacher{
     location: string,
     [index: string]: any;
 }
+
+export interface printTeacheFunction{
+    (firstName: string, lastName: string): string;
+}
+export default function printTeacher(firstName: string, lastName: string): string {
+    return `${firstName[0]}. ${lastName}`
+}

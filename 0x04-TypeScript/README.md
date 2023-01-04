@@ -1,5 +1,5 @@
 # 0x04. Typescript
-This is the fourth project in my alx software Engineering backend specilization project it goal id to undersatnd what is typescript and how it work.
+This is the fourth project in my alx software Engineering backend specilization project it's goal id to undersatnd what is typescript and how it work.
 
 ## Resources
 
