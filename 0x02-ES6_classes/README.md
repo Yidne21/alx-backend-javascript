@@ -13,6 +13,7 @@ Read or watch:
 - [MetaProgramming](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies)
 
 
-## :pencil2: Author
-
-:man: Yidnekachew Bantrga [Linkedin](https://www.linkedin.com/in/yidnekachew-bantrga-801376234/)
+## :pencil: **Author**
+### :man: Yidnekachew Bantrga
+- [Github](https://github.com/Yidne21)
+- [Linkedin](https://www.linkedin.com/in/yidnekachew-bantrga-801376234/)

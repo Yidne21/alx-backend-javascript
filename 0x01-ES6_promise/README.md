@@ -19,6 +19,7 @@ Read or watch:
 - [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [Throw / Try](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
 
-## :pencil2: Author
-
-:man: Yidnekachew Bantrga [Linkedin](https://www.linkedin.com/in/yidnekachew-bantrga-801376234/)
+## :pencil: **Author**
+### :man: Yidnekachew Bantrga
+- [Github](https://github.com/Yidne21)
+- [Linkedin](https://www.linkedin.com/in/yidnekachew-bantrga-801376234/)

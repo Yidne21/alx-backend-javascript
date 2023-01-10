@@ -13,3 +13,7 @@
 - String templating in ES6
 - Object creation and their properties in ES6
 - Iterators and for-of loops
+## :pencil: **Author**
+### :man: Yidnekachew Bantrga
+- [Github](https://github.com/Yidne21)
+- [Linkedin](https://www.linkedin.com/in/yidnekachew-bantrga-801376234/)
