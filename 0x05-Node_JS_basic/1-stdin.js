@@ -1,3 +1,8 @@
+/**
+ * isplay the message Welcome to Holberton School, what is your name?
+ * (followed by a new line)
+ * @author Yidnekachew Bantrga <https://github.com/Yidne21>
+ */
 process.stdout.write("Welcome to Holberton School, what is your name?\n");
 
 process.stdin.on("readable", () => {
