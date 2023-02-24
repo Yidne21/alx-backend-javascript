@@ -1,62 +1,58 @@
-const request = require("supertest");
+const request = require("request");
 const { expect } = require("chai");
-const app = require("./api");
 
-describe("Test the root path", () => {
-  it("Should respond with a 200 status code", () => {
-    request(app).get("/").expect(200);
+describe("API integration test", () => {
+  const API_URL = "http://localhost:7865";
+
+  it("GET / returns correct response", (done) => {
+    request.get(`${API_URL}/`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal("Welcome to the payment system");
+      done();
+    });
   });
 
-  it("Should respond with a welcome message", () => {
-    request(app).get("/").expect("Welcome to the payment system");
-  });
-});
-
-describe("Test the /cart/:id path", () => {
-  it("Should respond with a 200 status code when :id is a number", () => {
-    request(app).get("/cart/123").expect(200);
+  it("GET /cart/:id returns correct response for valid :id", (done) => {
+    request.get(`${API_URL}/cart/47`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal("Payment methods for cart 47");
+      done();
+    });
   });
 
-  it("Should respond with a 404 status code when :id is not a number", () => {
-    request(app).get("/cart/abc").expect(404);
+  it("GET /cart/:id returns 404 response for negative number values in :id", (done) => {
+    request.get(`${API_URL}/cart/-47`, (_err, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
+      done();
+    });
   });
 
-  it("Should respond with a message containing the cart id", () => {
-    request(app).get("/cart/123").expect("Payment methods for cart 123");
-  });
-});
-
-describe("Test the /available_payments path", () => {
-  it("Should respond with a 200 status code", () => {
-    request(app).get("/available_payments").expect(200);
+  it("GET /cart/:id returns 404 response for non-numeric values in :id", (done) => {
+    request.get(`${API_URL}/cart/d200-44a5-9de6`, (_err, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
+      done();
+    });
   });
 
-  it("Should respond with an object containing the payment methods", () => {
-    request(app)
-      .get("/available_payments")
-      .expect("Content-Type", /json/)
-      .expect(200)
-      .end((err, res) => {
-        if (err) throw err;
-        expect(res.body).to.deep.equal({
-          payment_methods: {
-            credit_cards: true,
-            paypal: false,
-          },
-        });
+  it("POST /login returns valid response", (done) => {
+    request.post(
+      `${API_URL}/login`,
+      { json: { userName: "Pinkbrook" } },
+      (_err, res, body) => {
+        expect(res.statusCode).to.be.equal(200);
+        expect(body).to.be.equal("Welcome Pinkbrook");
+        done();
+      }
+    );
+  });
+
+  it("GET /available_payments returns valid response", (done) => {
+    request.get(`${API_URL}/available_payments`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(JSON.parse(body)).to.be.deep.equal({
+        payment_methods: { credit_cards: true, paypal: false },
       });
-  });
-});
-
-describe("Test the /login path", () => {
-  it("Should respond with a 200 status code", () => {
-    request(app).post("/login").send({ userName: "John" }).expect(200);
-  });
-
-  it("Should respond with a welcome message", () => {
-    request(app)
-      .post("/login")
-      .send({ userName: "John" })
-      .expect("Welcome John");
+      done();
+    });
   });
 });
